@@ -1,0 +1,33 @@
+{
+  "label": "Illustrative AI output",
+  "memberId": "M-20261",
+  "callWith": "Daughter Karen Lindqvist-Haug, under the HIPAA authorisation on file",
+  "channel": "Phone, 612-555-0188",
+  "interpreter": "Not needed",
+  "transcript": [
+    { "t": "00:04", "speaker": "Nurse", "text": "Hi, is this Karen? This is Maria, the nurse case manager with Prairie Health. You're listed with an authorisation for your mother, Dorothy." },
+    { "t": "00:15", "speaker": "Daughter", "text": "Yes, that's me. I called on Saturday about home health and the meals." },
+    { "t": "00:24", "speaker": "Nurse", "text": "I saw that. First, I want to check her blood thinner. Which one is she taking?" },
+    { "t": "00:33", "speaker": "Daughter", "text": "The SNF said apixaban, the new expensive one. But the old warfarin bottle is still on the kitchen counter." },
+    { "t": "00:47", "speaker": "Nurse", "text": "Could she have taken any warfarin since she came home?" },
+    { "t": "00:53", "speaker": "Daughter", "text": "I don't think so? She might have taken one on Saturday, out of habit. I'm not sure. I'll ask her." },
+    { "t": "01:06", "speaker": "Nurse", "text": "Any bruising, nosebleeds, or blood in the urine or stool?" },
+    { "t": "01:13", "speaker": "Daughter", "text": "Not that she's told me. A bruise on her arm from the SNF, that's all." },
+    { "t": "01:24", "speaker": "Nurse", "text": "How is she managing at home?" },
+    { "t": "01:29", "speaker": "Daughter", "text": "She can't stand long enough to cook, and Dad can't be left alone. A neighbour has been bringing food." },
+    { "t": "01:44", "speaker": "Nurse", "text": "And the walker?" },
+    { "t": "01:48", "speaker": "Daughter", "text": "She's still using the loaner from the SNF. The new one hasn't come." },
+    { "t": "01:58", "speaker": "Nurse", "text": "Has she fallen since coming home?" },
+    { "t": "02:03", "speaker": "Daughter", "text": "No falls. She can't get to the landline in the kitchen in time, though, so call me first." }
+  ],
+  "facts": [
+    { "id": "f1", "fieldId": "meds_current", "label": "Anticoagulant", "value": "Taking apixaban per SNF instructions; warfarin bottle is still in the home", "confidence": 0.88, "highRisk": true, "evidenceLine": 3, "target": "both", "barrier": { "task": "Reconcile with the SNF physician and PCP, then have the warfarin removed from the home", "owner": "Assigned CM", "dueBusinessDays": 0 } },
+    { "id": "f2", "fieldId": "possible_dose", "label": "Possible warfarin dose since discharge", "value": "May have taken one warfarin tablet on Saturday; daughter is not sure", "confidence": 0.42, "highRisk": true, "evidenceLine": 5, "target": "assessment" },
+    { "id": "f3", "fieldId": "symptoms", "label": "Bleeding check", "value": "No bleeding reported; one arm bruise from the SNF", "confidence": 0.8, "highRisk": true, "evidenceLine": 7, "target": "assessment" },
+    { "id": "f4", "fieldId": "food", "label": "Meals", "value": "Cannot stand long enough to cook; a neighbour is bringing food", "confidence": 0.93, "highRisk": false, "evidenceLine": 9, "target": "both", "barrier": { "task": "Activate post-discharge meals with HeartlandMeals", "owner": "Assigned CM", "dueBusinessDays": 1 } },
+    { "id": "f5", "fieldId": "caregiver", "label": "Caregiver load", "value": "Husband cannot be left alone while she recovers", "confidence": 0.9, "highRisk": false, "evidenceLine": 9, "target": "both", "barrier": { "task": "Screen for caregiver strain and refer to Area Agency on Aging respite", "owner": "Assigned CM", "dueBusinessDays": 3 } },
+    { "id": "f6", "fieldId": "equipment", "label": "Equipment", "value": "Using the SNF's loaner walker; new walker not delivered", "confidence": 0.91, "highRisk": false, "evidenceLine": 11, "target": "both", "barrier": { "task": "Confirm walker and shower chair delivery with NorthStar Medical", "owner": "Assigned CM", "dueBusinessDays": 2 } },
+    { "id": "f7", "fieldId": "falls", "label": "Falls", "value": "No falls since coming home", "confidence": 0.77, "highRisk": false, "evidenceLine": 13, "target": "assessment" },
+    { "id": "f8", "fieldId": "phone", "label": "Best number", "value": "Cannot reach the kitchen landline in time; call the daughter first", "confidence": 0.9, "highRisk": false, "evidenceLine": 13, "target": "assessment" }
+  ]
+}

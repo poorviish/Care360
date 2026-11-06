@@ -1,0 +1,32 @@
+{
+  "label": "Illustrative AI output",
+  "memberId": "C-77419",
+  "callWith": "The member, after he replied to the SMS",
+  "channel": "Phone, 901-555-0231",
+  "interpreter": "Not needed",
+  "transcript": [
+    { "t": "00:04", "speaker": "Nurse", "text": "Hi Mr. Reed, thanks for replying to the text. I'm a nurse with the CKD program. Is this a good time?" },
+    { "t": "00:13", "speaker": "Member", "text": "Yeah, I'm up. I go in at ten." },
+    { "t": "00:18", "speaker": "Nurse", "text": "Our pharmacy data shows a gap in your blood pressure and diabetes medicines since June. Where do you get them now?" },
+    { "t": "00:29", "speaker": "Member", "text": "The VA mails them. Lisinopril, amlodipine, metformin, atorvastatin. I told the text thing that. It's free there." },
+    { "t": "00:43", "speaker": "Nurse", "text": "What dose of metformin?" },
+    { "t": "00:47", "speaker": "Member", "text": "A thousand, twice a day I think." },
+    { "t": "00:53", "speaker": "Nurse", "text": "Do you take anything for your back?" },
+    { "t": "00:57", "speaker": "Member", "text": "Ibuprofen, most days. Two or three." },
+    { "t": "01:04", "speaker": "Nurse", "text": "Your kidney doctor visit on October 14 was missed." },
+    { "t": "01:10", "speaker": "Member", "text": "It was at ten in the morning. I'm asleep by nine. Nobody called me at a time I'm up. And I never refused anything." },
+    { "t": "01:24", "speaker": "Nurse", "text": "They offer a 5:30 video visit. Would that work?" },
+    { "t": "01:29", "speaker": "Member", "text": "Yeah, that works." },
+    { "t": "01:33", "speaker": "Nurse", "text": "How's the CPAP going?" },
+    { "t": "01:37", "speaker": "Member", "text": "Some nights. I maybe had my eyes checked at the VA last year, I don't remember." }
+  ],
+  "facts": [
+    { "id": "f1", "fieldId": "meds_current", "label": "Where medicines come from", "value": "Lisinopril, amlodipine, metformin and atorvastatin by VA mail", "confidence": 0.95, "highRisk": true, "evidenceLine": 3, "target": "assessment" },
+    { "id": "f2", "fieldId": "metformin_dose", "label": "Metformin dose", "value": "Believes it is 1000 mg twice daily", "confidence": 0.8, "highRisk": true, "evidenceLine": 5, "target": "both", "barrier": { "task": "Ask the VA prescriber to review the metformin dose against the latest eGFR", "owner": "CKD program nurse (assignment pending)", "dueBusinessDays": 2 } },
+    { "id": "f3", "fieldId": "otc", "label": "Over-the-counter pain relief", "value": "Ibuprofen most days, two or three tablets", "confidence": 0.93, "highRisk": true, "evidenceLine": 7, "target": "both", "barrier": { "task": "Counsel on stopping NSAIDs and raise a back-pain alternative with the PCP", "owner": "CKD program nurse (assignment pending)", "dueBusinessDays": 1 } },
+    { "id": "f4", "fieldId": "work_schedule", "label": "Work and sleep", "value": "Starts work at 22:00; asleep by 09:00", "confidence": 0.92, "highRisk": false, "evidenceLine": 9, "target": "assessment" },
+    { "id": "f5", "fieldId": "nephrology", "label": "Missed nephrology visit", "value": "Slot fell in his sleep hours; he says he did not refuse outreach", "confidence": 0.9, "highRisk": false, "evidenceLine": 9, "target": "both", "barrier": { "task": "Rebook nephrology in the 17:30 telehealth slot", "owner": "CKD program nurse (assignment pending)", "dueBusinessDays": 2 } },
+    { "id": "f6", "fieldId": "cpap", "label": "CPAP use", "value": "Uses it some nights", "confidence": 0.7, "highRisk": false, "evidenceLine": 13, "target": "assessment" },
+    { "id": "f7", "fieldId": "eye_exam", "label": "Eye exam", "value": "May have had one at the VA last year; he is not sure", "confidence": 0.38, "highRisk": false, "evidenceLine": 13, "target": "assessment" }
+  ]
+}

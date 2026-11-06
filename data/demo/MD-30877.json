@@ -1,0 +1,33 @@
+{
+  "label": "Illustrative AI output",
+  "memberId": "MD-30877",
+  "callWith": "The member, on the number from the ED face sheet",
+  "channel": "Phone, 614-555-0199",
+  "interpreter": "Not needed",
+  "transcript": [
+    { "t": "00:05", "speaker": "Care manager", "text": "Hi, is this Jaylen? This is T. Nguyen, a care manager with Scioto Community Health. The ED at Mercy gave us this number. Is now OK?" },
+    { "t": "00:16", "speaker": "Member", "text": "Yeah. Who told you? I've got a few minutes left on this phone." },
+    { "t": "00:24", "speaker": "Care manager", "text": "The ED's case manager called us. Before we go further, your release for the treatment program has expired. Would you be willing to renew it?" },
+    { "t": "00:38", "speaker": "Member", "text": "Yeah, I guess. If it gets me back on subs." },
+    { "t": "00:45", "speaker": "Care manager", "text": "Are you on anything right now?" },
+    { "t": "00:50", "speaker": "Member", "text": "No. Nothing since jail. They gave me a few days when I got out and that was it. I stopped the lithium months ago." },
+    { "t": "01:04", "speaker": "Care manager", "text": "Have you used since the overdose?" },
+    { "t": "01:09", "speaker": "Member", "text": "Not really. I don't want to talk about that." },
+    { "t": "01:16", "speaker": "Care manager", "text": "That's OK. Any thoughts of hurting yourself today?" },
+    { "t": "01:22", "speaker": "Member", "text": "No. Not today." },
+    { "t": "01:28", "speaker": "Care manager", "text": "Where are you staying?" },
+    { "t": "01:32", "speaker": "Member", "text": "My friend's place on Livingston. Minutes run out around the middle of the month, so after that you can't reach me." },
+    { "t": "01:46", "speaker": "Care manager", "text": "Anything coming up I should know about?" },
+    { "t": "01:51", "speaker": "Member", "text": "Court on the 18th, and no way to get there. And the stitches come out on the 12th at Mercy." }
+  ],
+  "facts": [
+    { "id": "f1", "fieldId": "consent", "label": "42 CFR Part 2 release", "value": "Willing to renew; a signed form is still needed", "confidence": 0.79, "highRisk": true, "evidenceLine": 3, "target": "assessment" },
+    { "id": "f2", "fieldId": "meds_current", "label": "Buprenorphine", "value": "Not taking it since jail release; wants to restart", "confidence": 0.94, "highRisk": true, "evidenceLine": 5, "target": "both", "barrier": { "task": "Arrange a warm handoff for a same-day buprenorphine bridge (no PA required)", "owner": "Assigned CM", "dueBusinessDays": 0 } },
+    { "id": "f3", "fieldId": "lithium", "label": "Lithium", "value": "Stopped months ago", "confidence": 0.95, "highRisk": true, "evidenceLine": 5, "target": "assessment" },
+    { "id": "f4", "fieldId": "substance_use", "label": "Use since the overdose", "value": "Unclear: the member declined to answer", "confidence": 0.41, "highRisk": true, "evidenceLine": 7, "target": "assessment" },
+    { "id": "f5", "fieldId": "mood", "label": "Thoughts of self-harm today", "value": "Denies thoughts of self-harm today", "confidence": 0.84, "highRisk": true, "evidenceLine": 9, "target": "assessment" },
+    { "id": "f6", "fieldId": "living", "label": "Where staying", "value": "With a friend on Livingston Ave", "confidence": 0.91, "highRisk": false, "evidenceLine": 11, "target": "assessment" },
+    { "id": "f7", "fieldId": "phone", "label": "Phone access", "value": "Minutes run out around mid-month", "confidence": 0.87, "highRisk": false, "evidenceLine": 11, "target": "both", "barrier": { "task": "Enroll in the Lifeline phone benefit", "owner": "Assigned CM", "dueBusinessDays": 2 } },
+    { "id": "f8", "fieldId": "transport", "label": "Upcoming and transport", "value": "Court on the 18th with no transport; suture removal on the 12th at Mercy East", "confidence": 0.82, "highRisk": false, "evidenceLine": 13, "target": "both", "barrier": { "task": "Arrange transport and a reminder for the court date", "owner": "Assigned CM", "dueBusinessDays": 3 } }
+  ]
+}

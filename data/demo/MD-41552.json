@@ -1,0 +1,32 @@
+{
+  "label": "Illustrative AI output",
+  "memberId": "MD-41552",
+  "callWith": "Mother Yesenia Morales (legal guardian), through a Spanish interpreter. Shown in English.",
+  "channel": "Phone, 832-555-0165",
+  "interpreter": "Spanish, on the line",
+  "transcript": [
+    { "t": "00:06", "speaker": "Nurse", "text": "Good evening, is this Mrs. Morales? This is Maria, the nurse with Gulf Coast. A Spanish interpreter is on the line." },
+    { "t": "00:18", "speaker": "Mother", "text": "Yes. Is this about the bill from the hospital?" },
+    { "t": "00:25", "speaker": "Nurse", "text": "It's about Valentina's asthma, and there's no copay for her visit. Which inhalers do you have at home?" },
+    { "t": "00:37", "speaker": "Mother", "text": "The blue one and the orange one. I use the orange when she wheezes." },
+    { "t": "00:47", "speaker": "Nurse", "text": "Did you get the nebulizer medicine from the ER?" },
+    { "t": "00:53", "speaker": "Mother", "text": "No. I asked about it on the phone and nobody told me how. I work until late. The nebulizer machine works." },
+    { "t": "01:07", "speaker": "Nurse", "text": "Do you have a spacer for the inhaler?" },
+    { "t": "01:12", "speaker": "Mother", "text": "A spacer? No." },
+    { "t": "01:17", "speaker": "Nurse", "text": "Tell me about the apartment." },
+    { "t": "01:21", "speaker": "Mother", "text": "There's mold in the bathroom and cockroaches. The landlord doesn't answer. My brother smokes inside, but maybe he's stopped, I don't know." },
+    { "t": "01:38", "speaker": "Nurse", "text": "Has she had her flu shot this year?" },
+    { "t": "01:43", "speaker": "Mother", "text": "Not yet." },
+    { "t": "01:47", "speaker": "Nurse", "text": "Would it be OK to share an asthma plan with the school nurse?" },
+    { "t": "01:54", "speaker": "Mother", "text": "Yes, please. And call after 7:30. I work at the restaurant Thursday to Sunday until 10." }
+  ],
+  "facts": [
+    { "id": "f1", "fieldId": "meds_current", "label": "Controller use", "value": "Uses the orange inhaler only when wheezing; the nebulizer medicine from the ED was never picked up", "confidence": 0.92, "highRisk": true, "evidenceLine": 5, "target": "both", "barrier": { "task": "Agree one controller with Dr. Delgado and do teach-back in Spanish", "owner": "Assigned CM", "dueBusinessDays": 1 } },
+    { "id": "f2", "fieldId": "equipment", "label": "Equipment", "value": "No spacer at home; the nebulizer machine works", "confidence": 0.94, "highRisk": false, "evidenceLine": 7, "target": "both", "barrier": { "task": "Get a spacer dispensed at Fiesta Pharmacy", "owner": "Assigned CM", "dueBusinessDays": 2 } },
+    { "id": "f3", "fieldId": "environment", "label": "Home environment", "value": "Mold in the bathroom and cockroaches; landlord not responding", "confidence": 0.9, "highRisk": false, "evidenceLine": 9, "target": "both", "barrier": { "task": "Request the asthma home environmental assessment from Healthy Homes Houston", "owner": "Assigned CM", "dueBusinessDays": 3 } },
+    { "id": "f4", "fieldId": "smoke", "label": "Smoking in the home", "value": "Uncle may have stopped smoking indoors; mother is not sure", "confidence": 0.43, "highRisk": false, "evidenceLine": 9, "target": "assessment" },
+    { "id": "f5", "fieldId": "vaccines", "label": "Flu shot", "value": "Not yet given this season", "confidence": 0.86, "highRisk": false, "evidenceLine": 11, "target": "assessment" },
+    { "id": "f6", "fieldId": "school", "label": "School plan consent", "value": "Mother agrees to share an asthma plan with the school nurse", "confidence": 0.74, "highRisk": true, "evidenceLine": 13, "target": "assessment" },
+    { "id": "f7", "fieldId": "best_time", "label": "Best time", "value": "After 19:30; restaurant shift Thursday to Sunday until 22:00", "confidence": 0.89, "highRisk": false, "evidenceLine": 13, "target": "assessment" }
+  ]
+}

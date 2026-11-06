@@ -1,0 +1,32 @@
+{
+  "label": "Illustrative AI output",
+  "memberId": "D-55308",
+  "callWith": "Son Minh Nguyen, with a Vietnamese interpreter on standby for the member",
+  "channel": "Phone, 408-555-0190",
+  "interpreter": "Vietnamese, on standby",
+  "transcript": [
+    { "t": "00:05", "speaker": "Nurse", "text": "Hello, this is Maria, the nurse case manager with Pacific Harbor. Is this Minh? I'm calling about your mother. A Vietnamese interpreter is on the line if she'd like to join." },
+    { "t": "00:18", "speaker": "Son", "text": "Yes, this is Minh. I signed a release at Bay Oncology, if that's what you need." },
+    { "t": "00:31", "speaker": "Nurse", "text": "Thank you, I'll get a copy for our file. The nurse line told us she had a fever Saturday night. How is she right now?" },
+    { "t": "00:44", "speaker": "Son", "text": "It was 38.3 with chills. I called the oncologist's on-call line and they said to watch it and call back if it went up. It was about 37.8 this morning." },
+    { "t": "01:02", "speaker": "Nurse", "text": "So she didn't go to the emergency room?" },
+    { "t": "01:06", "speaker": "Son", "text": "No, she stayed home." },
+    { "t": "01:12", "speaker": "Nurse", "text": "Has she had the nausea medicine from Dr. Lin?" },
+    { "t": "01:19", "speaker": "Son", "text": "No. The pharmacy on Tully Road closed, so we never got it. She's barely eating. I've been making rice soup before my shift." },
+    { "t": "01:36", "speaker": "Nurse", "text": "Which pharmacy works for you?" },
+    { "t": "01:40", "speaker": "Son", "text": "CVS on Story Road. That's where her other medicines come from." },
+    { "t": "01:48", "speaker": "Nurse", "text": "And the rides for the 16th and 17th?" },
+    { "t": "01:55", "speaker": "Son", "text": "The driver went to the wrong building last time. It's Tully Road, apartment 206, ZIP 95122. I missed a shift to drive her." },
+    { "t": "02:12", "speaker": "Nurse", "text": "How has she been feeling in herself?" },
+    { "t": "02:18", "speaker": "Son", "text": "She cries sometimes, I think. Maybe when I'm at work? My wife would know better." }
+  ],
+  "facts": [
+    { "id": "f1", "fieldId": "symptoms", "label": "Current symptoms", "value": "Fever 38.3 C with chills Saturday night; about 37.8 C this morning by home thermometer", "confidence": 0.93, "highRisk": true, "evidenceLine": 3, "target": "assessment" },
+    { "id": "f2", "fieldId": "care_sought", "label": "Care sought", "value": "Called the oncology on-call line; did not go to the ED", "confidence": 0.88, "highRisk": true, "evidenceLine": 5, "target": "assessment" },
+    { "id": "f3", "fieldId": "meds_current", "label": "Antiemetics", "value": "None in the home; the prescriptions were never picked up because the pharmacy closed", "confidence": 0.95, "highRisk": true, "evidenceLine": 7, "target": "both", "barrier": { "task": "Ask Bay Oncology to re-send the antiemetics to CVS Story Rd", "owner": "Assigned CM", "dueBusinessDays": 1 } },
+    { "id": "f4", "fieldId": "food", "label": "Eating", "value": "Eating very little; son prepares meals before his shift", "confidence": 0.72, "highRisk": false, "evidenceLine": 7, "target": "both", "barrier": { "task": "Refer to medically tailored meals (Community Supports)", "owner": "Assigned CM", "dueBusinessDays": 3 } },
+    { "id": "f5", "fieldId": "pharmacy", "label": "Preferred pharmacy", "value": "CVS Story Rd", "confidence": 0.92, "highRisk": false, "evidenceLine": 9, "target": "assessment" },
+    { "id": "f6", "fieldId": "transport", "label": "Ride pickup", "value": "Pickup must be Tully Rd Apt 206, ZIP 95122; son missed a shift to drive on the last visit", "confidence": 0.94, "highRisk": false, "evidenceLine": 11, "target": "both", "barrier": { "task": "Correct the pickup address with ModivRide for both upcoming trips", "owner": "Assigned CM", "dueBusinessDays": 1 } },
+    { "id": "f7", "fieldId": "mood", "label": "Mood", "value": "May be tearful at times; son is unsure and says his wife would know better", "confidence": 0.45, "highRisk": false, "evidenceLine": 13, "target": "assessment" }
+  ]
+}
