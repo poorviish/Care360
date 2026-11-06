@@ -1,0 +1,600 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* HiLabs workbench palette. Crimson and amber keep the brief's meaning only. */
+  --color-navy-950: #0b1340;
+  --color-navy-900: #11183f;
+  --color-navy-800: #101b55;
+  --color-navy-700: #2b3674;
+  --color-navy-100: #f0f2fb;
+  --color-action: #4f35f5;
+  --color-action-strong: #3926d9;
+  --color-action-tint: #f0eeff;
+  --color-focus: #4f35f5;
+  --color-amber: #e9a23b;
+  --color-amber-soft: #fff0d6;
+  --color-amber-tint: #fff8ec;
+  --color-crimson: #c81e2d;
+  --color-crimson-tint: #fff0f2;
+  --color-ok: #126b34;
+  --color-ok-tint: #e8f8ed;
+
+  --color-ink-2: #474f6d;
+  --color-ink-3: #59627f;
+  --color-line: #dde2f5;
+  --color-line-2: #c6cdea;
+  --color-canvas: #f7f8fe;
+  --color-surface-2: #fafaff;
+
+  /* Type. Set in rem so the reader's text size is honoured. 1rem is 14px, the body floor. */
+  --text-cap: 0.9286rem;
+  --text-cap--line-height: 1.35;
+  --text-foot: 1rem;
+  --text-foot--line-height: 1.42;
+  --text-head: 1.1429rem;
+  --text-head--line-height: 1.3;
+  --text-head--letter-spacing: -0.01em;
+  --text-title: 1.4286rem;
+  --text-title--line-height: 1.25;
+  --text-title--letter-spacing: -0.015em;
+  --text-large: 1.7143rem;
+  --text-large--line-height: 1.2;
+  --text-large--letter-spacing: -0.02em;
+}
+
+html {
+  font-size: 87.5%;
+  scrollbar-color: var(--color-line-2) transparent;
+  scrollbar-width: thin;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-navy-900);
+  font-family: var(--font-sans);
+  line-height: 1.42;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgb(79 53 245 / 0.18);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+  border-radius: 4px;
+}
+
+/* All scores, timestamps and timers. */
+.tnum {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* In the components layer, so a utility on an element can override any of these. */
+@layer components {
+.muted {
+  color: var(--color-ink-3);
+  font-size: var(--text-cap);
+  line-height: var(--text-cap--line-height);
+}
+
+/* ---------- Surfaces: flat planes and 1px borders. Only overlays carry a shadow. ---------- */
+
+.panel {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgb(35 45 110 / 0.045);
+}
+
+.sheet {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgb(35 45 110 / 0.14);
+}
+
+.popover {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgb(35 45 110 / 0.14);
+}
+
+/* Section heading: uppercase and tracked, so it never reads as a clinical value. */
+.sect {
+  color: var(--color-navy-800);
+  font-size: var(--text-head);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.label {
+  color: var(--color-ink-3);
+  font-size: var(--text-cap);
+  line-height: 1.3;
+}
+
+.src-tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-line);
+  border-radius: 4px;
+  background: var(--color-navy-100);
+  padding: 0 0.375rem;
+  color: var(--color-ink-2);
+  font-size: var(--text-cap);
+  line-height: 1.45;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  height: 2.2rem;
+  padding: 0 0.8rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: var(--text-foot);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition:
+    background-color 120ms ease-out,
+    border-color 120ms ease-out,
+    opacity 120ms ease-out;
+}
+
+.btn-primary {
+  background: var(--color-action);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-action-strong);
+}
+
+/* Launches a top-level workflow, such as a call. */
+.btn-action {
+  background: var(--color-action);
+  color: #fff;
+}
+
+.btn-action:hover {
+  background: var(--color-action-strong);
+}
+
+.btn-secondary {
+  background: #fff;
+  border-color: var(--color-line);
+  color: var(--color-navy-800);
+}
+
+/* Lavender action: a recommended next step that is not the page's primary action. */
+.btn-soft {
+  background: var(--color-action-tint);
+  border-color: #ddd8ff;
+  color: var(--color-action-strong);
+}
+
+.btn-soft:hover {
+  background: #e6e2ff;
+}
+
+.btn-secondary:hover {
+  background: var(--color-canvas);
+  border-color: var(--color-line-2);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-navy-800);
+  padding: 0 0.5rem;
+}
+
+.btn-ghost:hover {
+  background: var(--color-navy-100);
+}
+
+/* Demoted Call: still usable, but outlined and carrying a warning. */
+.btn-warning {
+  background: #fff;
+  border-color: var(--color-amber);
+  color: var(--color-navy-900);
+}
+
+.btn-warning:hover {
+  background: var(--color-amber-tint);
+}
+
+.btn-sm {
+  height: 1.9rem;
+  padding: 0 0.55rem;
+  font-size: var(--text-cap);
+}
+
+.btn-lg {
+  height: 2.5rem;
+  padding: 0 1.1rem;
+}
+
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ---------- Chips ---------- */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: 1.5rem;
+  padding: 0.05rem 0.55rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: var(--text-cap);
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+.chip-tint {
+  background: var(--color-action-tint);
+  border-color: #ddd8ff;
+  color: var(--color-action-strong);
+}
+
+.chip-quiet {
+  background: var(--color-navy-100);
+  border-color: var(--color-line);
+  color: #334155;
+}
+
+/* Amber is a fill or a border with dark text. Never amber text on white. */
+.chip-amber {
+  background: var(--color-amber-soft);
+  border-color: #f0cd94;
+  color: var(--color-navy-900);
+}
+
+.chip-outline {
+  background: #fff;
+  border-color: var(--color-line-2);
+  color: var(--color-navy-900);
+}
+
+.chip-navy {
+  background: var(--color-action-tint);
+  color: var(--color-action-strong);
+}
+
+.chip-ok {
+  background: var(--color-ok-tint);
+  border-color: #c9ecd3;
+  color: var(--color-ok);
+}
+
+.chip-crimson {
+  background: var(--color-crimson-tint);
+  border-color: #f6c3c9;
+  color: var(--color-crimson);
+}
+
+.chip-crimson-solid {
+  background: var(--color-crimson);
+  color: #fff;
+}
+
+/* ---------- Forms ---------- */
+
+input[type="checkbox"]:not(.sr-only) {
+  appearance: none;
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 5px;
+  background: #fff center / 80% no-repeat;
+  box-shadow: inset 0 0 0 1px #94a3b8;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease-out,
+    box-shadow 120ms ease-out;
+}
+
+input[type="checkbox"]:not(.sr-only):hover {
+  box-shadow: inset 0 0 0 1px var(--color-action);
+}
+
+input[type="checkbox"]:not(.sr-only):checked {
+  background-color: var(--color-action);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5 6.6 11.6 12.5 5'/%3E%3C/svg%3E");
+  box-shadow: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  width: 2.5rem;
+  height: 1.4rem;
+}
+
+.switch-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: #94a3b8;
+  transition: background-color 150ms ease-out;
+}
+
+.switch-knob {
+  position: absolute;
+  top: 0.15rem;
+  left: 0.15rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  background: #fff;
+  transition: transform 150ms ease-out;
+}
+
+.switch input:checked ~ .switch-track {
+  background: var(--color-action);
+}
+
+.switch input:checked ~ .switch-knob {
+  transform: translateX(1.1rem);
+}
+
+.switch input:focus-visible ~ .switch-track {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.select {
+  height: 2.4rem;
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 0 0.5rem;
+  color: var(--color-navy-900);
+  font-size: var(--text-foot);
+  cursor: pointer;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  background: #fff;
+  padding: 0.35rem 0.6rem;
+  font-size: var(--text-foot);
+  line-height: 1.4;
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--color-focus);
+  box-shadow: 0 0 0 2px rgb(79 53 245 / 0.18);
+}
+
+/* ---------- Tables ---------- */
+
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-foot);
+  line-height: var(--text-foot--line-height);
+}
+
+.tbl th {
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-canvas);
+  color: var(--color-ink-3);
+  font-size: var(--text-cap);
+  font-weight: 650;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.tbl td {
+  padding: 0.55rem 0.6rem;
+  border-bottom: 1px solid #edf0fa;
+  vertical-align: top;
+}
+
+.tbl tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ---------- Workbench layout ---------- */
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--color-line);
+  scrollbar-width: none;
+}
+
+.tab {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px 10px 0 0;
+  color: var(--color-navy-800);
+  font-size: var(--text-foot);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 120ms ease-out;
+}
+
+.tab:hover {
+  background: var(--color-surface-2);
+}
+
+.tab[aria-selected="true"] {
+  background: var(--color-action-tint);
+  box-shadow: inset 0 -2px var(--color-action);
+  color: var(--color-action);
+}
+
+.avatar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  color: var(--color-navy-800);
+  font-weight: 750;
+}
+
+.score-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.6rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 10px;
+  font-size: var(--text-head);
+  font-weight: 800;
+}
+
+.sub-card {
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background: var(--color-surface-2);
+  padding: 0.8rem 0.9rem;
+}
+
+.queue-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.queue-table th {
+  background: #fafbff;
+  white-space: normal;
+  vertical-align: bottom;
+}
+
+.queue-table td {
+  vertical-align: middle;
+}
+
+.queue-table th,
+.queue-table td {
+  padding-inline: 0.4rem;
+}
+
+.queue-row {
+  cursor: pointer;
+}
+
+.queue-row td {
+  transition: background-color 120ms ease-out;
+}
+
+.queue-row:hover td {
+  background: var(--color-surface-2);
+}
+
+.queue-row[aria-selected="true"] td {
+  background: #f3f1ff;
+  border-top: 1px solid #bdb4ff;
+  border-bottom: 1px solid #bdb4ff;
+}
+
+.queue-row[aria-selected="true"] td:first-child {
+  border-left: 1px solid #bdb4ff;
+  border-radius: 10px 0 0 10px;
+}
+
+.queue-row[aria-selected="true"] td:last-child {
+  border-right: 1px solid #bdb4ff;
+  border-radius: 0 10px 10px 0;
+}
+
+/* ---------- States ---------- */
+
+.skeleton {
+  border-radius: 4px;
+  background: var(--color-line);
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* A value arriving from a confirmed fact. */
+.flash-in {
+  animation: flash-in 1.8s ease-out both;
+  border-radius: 4px;
+}
+
+@keyframes flash-in {
+  0%,
+  45% {
+    background-color: var(--color-action-tint);
+    box-shadow: 0 0 0 2px var(--color-action);
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: 0 0 0 2px transparent;
+  }
+}
+
+}
+
+/* ---------- The reader's settings ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-property: opacity, background-color, color !important;
+    scroll-behavior: auto !important;
+  }
+
+  .skeleton,
+  .flash-in {
+    animation: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .popover,
+  .panel,
+  .sheet {
+    border-color: var(--color-navy-900);
+  }
+
+  .tbl th,
+  .tbl td {
+    border-color: var(--color-ink-3);
+  }
+
+  .muted,
+  .label {
+    color: var(--color-ink-2);
+  }
+}
