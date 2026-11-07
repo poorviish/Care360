@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "HiLabs Prism",
+  title: "HiLabs Care360",
   description: "Prototype case-management workbench over synthetic data.",
 };
 
