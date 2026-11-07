@@ -1,6 +1,6 @@
 import { MemberView } from "@/components/MemberView";
 
-export const metadata = { title: "Member Insight Hub | HiLabs Prism" };
+export const metadata = { title: "Member Insight Hub | HiLabs Care360" };
 
 export default async function MemberPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
