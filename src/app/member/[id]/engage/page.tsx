@@ -1,6 +1,6 @@
 import { EngagementHub } from "@/components/Workspace";
 
-export const metadata = { title: "Care Engagement Hub | HiLabs Prism" };
+export const metadata = { title: "Care Engagement Hub | HiLabs Care360" };
 
 export default async function EngagePage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ to?: string }> }) {
   const { id } = await params;
