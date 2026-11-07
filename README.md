@@ -1,6 +1,6 @@
-# HiLabs Prism
+# HiLabs Care360
 
-A working prototype of a case-management workbench for health-plan nurses, driven by a real data pipeline over one Excel workbook. It is a demo for a campus-hiring product case, not production software. All patient data is fictional.
+A working prototype of a case-management workbench for health-plan nurses, driven by a real data pipeline synthetic data.
 
 The stack is one Next.js app (App Router, TypeScript), Tailwind, lucide-react, SheetJS and Motion (springs). There is no Python, database, external API or secret.
 
