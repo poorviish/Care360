@@ -4,6 +4,9 @@ A working prototype of a case-management workbench for health-plan nurses, drive
 
 The stack is one Next.js app (App Router, TypeScript), Tailwind, lucide-react, SheetJS and Motion (springs). There is no Python, database, external API or secret.
 
+## Access the deployed link here
+[https://care360-y5mb.vercel.app/](https://care360-y5mb.vercel.app/)
+
 ## Run it locally
 
 You need Node 20.9 or later.
@@ -36,7 +39,7 @@ PRISM_DEV_ORIGINS=my-box.local npm run dev
 3. Keep the **Next.js** preset. No environment variables are needed.
 4. Deploy.
 
-Before you push, check that `Interview_Slots_*.xlsx` is not committed if that file is still in the folder. It holds real people's contact details and has nothing to do with this app, so `.gitignore` and `.vercelignore` exclude it.
+Before you push, check that `Synthetic_Data.xlsx` is not committed if that file is still in the folder. It holds real people's contact details and has nothing to do with this app, so `.gitignore` and `.vercelignore` exclude it.
 
 The workbook and `data/processed.json` are both committed. The build regenerates the JSON from the workbook, and at runtime the app reads only the JSON. Route handlers use the Node runtime and write nothing to disk.
 
